@@ -399,10 +399,10 @@ export default function OrderDetailPage() {
     if (!printRef.current || !order) return
     const element = printRef.current
 
-    const opt = {
-      margin: [0.3, 0.3, 0.3, 0.3],
+    const opt: any = {
+      margin: [0.3, 0.3, 0.3, 0.3] as [number, number, number, number],
       filename: `Invoice-${order.id.slice(-8).toUpperCase()}.pdf`,
-      image: { type: "jpeg", quality: 0.98 },
+      image: { type: "jpeg" as const, quality: 0.98 },
       html2canvas: { scale: 2 },
       jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
     }

@@ -480,13 +480,31 @@ export default function Navbar() {
       </div>
 
       {/* Bottom Navigation Bar */}
-      <div className="hidden md:flex w-full bg-[#dbdbdb] px-10 py-6 text-sm justify-between font-satoshi font-semibold">
+      {/* <div className="hidden md:flex w-full bg-[#dbdbdb] px-10 py-6 text-sm justify-between font-satoshi font-semibold">
         {navItems.map((item, index) => (
           <Link key={index} href={item.href} className="flex items-center gap-1 cursor-pointer hover:underline">
             {item.name} <VscChevronDown />
           </Link>
         ))}
-      </div>
+      </div> */}
+            {/* Bottom Navigation Bar - Centered on Large Screens */}
+      <nav className="hidden md:block w-full bg-[#dbdbdb] py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ul className="flex justify-center gap-6 lg:gap-8 text-sm font-semibold font-satoshi">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="flex items-center gap-1 cursor-pointer hover:underline transition-colors"
+                >
+                  {item.name}
+                  <VscChevronDown className="ml-1" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
 
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
@@ -591,7 +609,7 @@ export default function Navbar() {
               )}
             </form>
           </div>
-          <ul className="flex flex-col gap-4 px-5 py-4">
+          {/* <ul className="flex flex-col gap-4 px-5 py-4">
             {navItems.map((item, index) => (
               <li key={index}>
                 <Link
@@ -603,7 +621,9 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-          </ul>
+          </ul> */}
+          {/* Bottom Navigation Bar - Centered on Large Screens */}
+    
         </div>
       )}
 
